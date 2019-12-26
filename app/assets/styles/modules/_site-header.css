@@ -1,5 +1,5 @@
 .site-header {
-    position: absolute;
+    position: fixed;
     padding: 10px 0;
     width: 100%;
     z-index: 2;
@@ -11,6 +11,11 @@
     
     @mixin atMedium {
         background-color: rgba($mainBlue, 0.3);
+        transition: background-color 1.5s ease-out;
+
+        &--dark {
+            background-color: rgba(23, 51, 72, 0.85);
+        }
     }
     
     &__btn-container {
@@ -23,7 +28,9 @@
         position: absolute;
         top: 0px;
         left: 50%;
-        transform: translateX(-50%);
+        transition: transform .3s ease-out;
+        transform: translateX(-50%) scale(.8);
+        transform-origin: 50% 0;
         background-color: $mainBlue;
         padding: 13px 29px;
 
@@ -31,6 +38,10 @@
             left: auto;
             transform: translateX(0);
             padding: 25px 36px;
+
+            .site-header--dark & {
+                transform: scale(.55);
+            }
         }
     }
 
